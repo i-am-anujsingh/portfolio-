@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div id="body">
+    <!-- Navbar -->
+    <nav>
+      <div>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+    
+    <!-- Header Section with Picture -->
+    <header>
+      <img class="image" id="myImage" src="image/dp.jpg" alt="Image">
+      <h1>Welcome to My Portfolio</h1>
+      <p>Developer || Designer || Innovator</p>
+      <a href="#about">Learn More About Me</a>
+    </header>
+    
+    <!-- About Me Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hi, I'm Anuj Singh, a dedicated software developer with a passion for creating innovative solutions and optimizing code. My experience spans various programming languages and technologies, allowing me to tackle complex problems and build efficient software.
+        <br>
+        Outside of work, I embrace my creative side through sketching and find relaxation in watching anime. This combination of technical expertise, artistic expression, and personal interests keeps me engaged and inspired, both professionally and personally.
+      </p>
+    </section>
+    <hr />
+    
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-container">
+        <div class="skill">
+          <i class="fas fa-code"></i>
+          <h3>Web Development</h3>
+          <p>HTML, CSS, JavaScript, React</p>
+        </div>
+        <div class="skill">
+          <i class="fas fa-paint-brush"></i>
+          <h3>Design</h3>
+          <p>Photoshop, Canva, Figma, Illustrator</p>
+        </div>
+        <div class="skill">
+          <i class="fas fa-database"></i>
+          <h3>Backend</h3>
+          <p>Python, MySQL, Django, Node.js, Express, MongoDB</p>
+        </div>
+      </div>
+    </section>
+    <hr />
+    
+    <!--achievements-->
+    <section id="achievements">
+      <h2>Achievements</h2>
+      <div class="achievement-container">
+        <div class="achievement-card">
+          <img class="projimage" src="image/tech-fest4.jpg" alt="tech-fest4.0 Participation Certificate">
+          <p>This Certificate of Appreciation for my active participation in TechFest 4.0, organized by the Department of Computer Science, National Post Graduate College!</p>
+        </div>
+      </div>
+    </section>
+    <hr>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="projects-container">
+        <!-- Project Card 1 -->
+        <div class="project-card">
+          <img class="projimage" src="image/portfolioSS.jpg" alt="Project 1 Screenshot">
+          <h3>Project 1: Portfolio Website</h3>
+          <p>A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
+          <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+          <a href="https://github.com/your-username/project1" target="_blank">View on GitHub</a>
+          <a href="https://yourprojectdemo.com" target="_blank">Live Demo</a>
+        </div>
+        
+        <!-- Project Card 2 -->
+        <div class="project-card">
+          <img class="projimage" src="image/npgcstu.jpg" alt="Project 2 Screenshot">
+          <h3>Project 2: NPGCstudents website</h3>
+          <p>A Django-based platform designed to enhance connectivity and accessibility for both students and teachers.It improves accessibility to college information, academic resources, and student services by 30%.Featuring a chatbot mentor for instant support.WhatsApp QR system for seamless group connectivity, it reduces the hassle of joining WhatsApp groups.By bridging the gap between students and faculty, it creates a more efficient and interactive learning environment.</p>
+          <p><strong>Technologies:</strong>HTML, CSS, JavaScript, Python, Django</p>
+          <a href="https://github.com/your-username/project2" target="_blank">View on GitHub</a>
+          <a href="https://npgcstudents.pythonanywhere.com/login/" target="_blank">Live Demo</a>
+        </div>
+        
+        <!-- Project Card 3 -->
+        <div class="project-card">
+          <img class="projimage" src="/i" alt="Project 2 Screenshot">
+          <h3>Project 3: Amazon clone website</h3>
+          <p>An Amazon clone website using front end only</p>
+          <p><strong>Technologies:</strong>HTML, CSS, JavaScript</p>
+          <a href="https://github.com/your-username/project2" target="_blank">View on GitHub</a>
+          <a href="https://yourprojectdemo.com" target="_blank">Live Demo</a>
+        </div>
+      </div>
+    </section>
+    <hr />
+    
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form id="contactForm" class="contact-form">
+        <input id="name" type="text" placeholder="Your Name" required>
+        <input id="email" type="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+        <p id="responseMessage"></p> <!-- Added feedback message element -->
+      </form>
+    </section>
+    
+    <!-- Social Media Section -->
+    <section id="social-media">
+      <div>
+        <a href="https://www.instagram.com/i.am.anujsingh/profilecard/?igsh=bGIxNGd4MzhiMHE2"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/anuj-singh-3b8553322"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/i-am-anujsingh"><i class="fa-brands fa-github"></i></a>
+        <a href="https://x.com/i_am__anujsingh?t=D8Vodkr3SYH2YB02WeaXbQ&s=09"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </section>
+    <hr />
+    
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Anuj Singh | All Rights Reserved</p>
+    </footer>
+  </div>
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  
+  <!-- Adding JavaScript -->
+  <script src="main.js" type="text/javascript" charset="utf-8"></script>
+  <script src="server/server.js" charset="utf-8"></script>
+</body>
+
+</html>
