@@ -94,7 +94,7 @@ header a {
   transition: background .3s;
 }
 
-nav div a:hover {
+nav div a:hover { 
   border: 1px solid #fff;
 }
 
@@ -222,7 +222,7 @@ header a:hover {
 
 .project-card {
   border-radius: 10px;
-  width: 300px;
+  width: 400px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
   transition: transform .3s, box-shadow .3s;
   color: #001858;
@@ -429,7 +429,7 @@ button{
 
 .achievement-card {
   border-radius: 10px;
-  width: 300px;
+  width: 400px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
   transition: transform .3s, box-shadow .3s;
   color: #001858;
