@@ -107,7 +107,7 @@ header {
   border-radius: 50%;
   width: 400px;
   height: 400px;
-  margin-bottom: 200px;
+  margin-bottom: 300px;
   background-size: contain;
   border: 2px solid #fff;
   position: relative;
@@ -122,7 +122,7 @@ header {
 }
 
 .image:hover {
-  transform: scale(1.4);
+  transform: scale(1.2);
 }
 
 .project-card:hover,.achievement-card:hover, 
@@ -192,7 +192,7 @@ header a:hover {
 }
 
 .project-card h3,
-.skill h3 {
+.skill h3{
   margin-bottom: 1rem;
   color: #232323;
 }

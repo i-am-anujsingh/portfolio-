@@ -37,6 +37,7 @@ const message = contactForm.querySelector('#message').value.trim();
       } catch (error) {
         responseMessage.textContent = 'An error occurred. Please try again later.';
         responseMessage.style.color = 'red';
+        console.log(error);
       }
     }
   });
