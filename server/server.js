@@ -8,7 +8,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Replace this with your MongoDB Atlas URI
-mongoose.connect('mongodb+srv://ianujsingh1801:m7d6ucpy5b@cluster0.x3hjoxe.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => console.log('Connected to MongoDB'))

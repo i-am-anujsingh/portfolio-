@@ -16,7 +16,7 @@ if (contactForm) {
       alert("Please enter a valid email address.");
     } else {
       try {
-        const response = await fetch('https://your-backend-url.onrender.com/contact', {  // <-- UPDATE THIS LINE
+        const response = await fetch('https://portfolio-1j5x.onrender.com', {  // <-- UPDATE THIS LINE
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
