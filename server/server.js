@@ -1,55 +1,39 @@
 const express = require('express');
-const nodemailer = require('nodemailer');
-const path = require('path');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config(); // For loading environment variables
 
 const app = express();
-const PORT = 7700;
-
-// Middleware
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-// Serve static files from the public folder
-app.use(express.static(path.join(__dirname, 'public')));
+// Replace this with your MongoDB Atlas URI
+mongoose.connect('mongodb+srv://ianujsingh1801:m7d6ucpy5b@cluster0.x3hjoxe.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
-// Contact form endpoint
-app.post('/send', async (req, res) => {
+const messageSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  message: String,
+  date: { type: Date, default: Date.now }
+});
+
+const Message = mongoose.model('Message', messageSchema);
+
+// Route to handle form submissions
+app.post('/contact', async (req, res) => {
   const { name, email, message } = req.body;
-
-  // Validate input
-  if (!name || !email || !message) {
-    return res.status(400).json({ message: 'All fields are required.' });
-  }
-
-  // Configure Nodemailer with environment variables
-  const transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: process.env.EMAIL_USER, // Use environment variable for your email
-      pass: process.env.EMAIL_PASS, // Use environment variable for your password
-    },
-  });
-
-  const mailOptions = {
-    from: email, // Sender's email
-    to: process.env.EMAIL_USER, // Your email to receive messages
-    subject: `New Contact Form Submission from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-  };
-
   try {
-    // Send the email
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: 'Your message has been sent successfully!' });
-  } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ message: 'Failed to send the message. Please try again later.' });
+    const newMessage = new Message({ name, email, message });
+    await newMessage.save();
+    res.status(200).send('Message saved!');
+  } catch (err) {
+    res.status(500).send('Failed to save message');
   }
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

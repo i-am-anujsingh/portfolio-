@@ -1,4 +1,3 @@
-
 // Form Validation and Submission
 const contactForm = document.querySelector('.contact-form');
 
@@ -11,15 +10,13 @@ if (contactForm) {
     const message = contactForm.querySelector('textarea').value.trim();
     const responseMessage = document.getElementById('responseMessage'); // For feedback
 
-    // Check if all fields are filled
     if (!name || !email || !message) {
       alert("Please fill out all the fields.");
     } else if (!validateEmail(email)) {
       alert("Please enter a valid email address.");
     } else {
-      // Attempt to send the data to the backend
       try {
-        const response = await fetch('http://localhost:7700/contact', {
+        const response = await fetch('https://your-backend-url.onrender.com/contact', {  // <-- UPDATE THIS LINE
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -30,9 +27,9 @@ if (contactForm) {
         const result = await response.json();
 
         if (response.ok) {
-          responseMessage.textContent = result.message;
+          responseMessage.textContent = result.message || 'Message sent!';
           responseMessage.style.color = 'green';
-          contactForm.reset(); // Clear the form
+          contactForm.reset();
         } else {
           responseMessage.textContent = result.message || 'Failed to send the message.';
           responseMessage.style.color = 'red';
@@ -45,7 +42,6 @@ if (contactForm) {
   });
 }
 
-// Email Validation Function
 function validateEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
@@ -53,7 +49,6 @@ function validateEmail(email) {
 
 // Smooth Scrolling for Navigation Links
 const navLinks = document.querySelectorAll('nav a');
-
 navLinks.forEach(link => {
   link.addEventListener('click', function(event) {
     event.preventDefault();
@@ -63,7 +58,7 @@ navLinks.forEach(link => {
   });
 });
 
-// Scroll-to-Top Button (Optional)
+// Scroll-to-Top Button
 const scrollToTopBtn = document.createElement('button');
 scrollToTopBtn.textContent = '↑';
 scrollToTopBtn.id = 'scrollToTop';
@@ -82,11 +77,7 @@ scrollToTopBtn.style.cursor = 'pointer';
 scrollToTopBtn.style.backdropFilter = "blur(100px) ";
 
 window.addEventListener('scroll', function() {
-  if (window.scrollY > 300) {
-    scrollToTopBtn.style.display = 'block';
-  } else {
-    scrollToTopBtn.style.display = 'none';
-  }
+  scrollToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
 });
 
 scrollToTopBtn.addEventListener('click', function() {
@@ -95,12 +86,10 @@ scrollToTopBtn.addEventListener('click', function() {
 
 // Social Media Links Hover Effect
 const socialIcons = document.querySelectorAll('#social-media a');
-
 socialIcons.forEach(icon => {
   icon.addEventListener('mouseover', () => {
     icon.style.color = '#ffcc00';
   });
-
   icon.addEventListener('mouseout', () => {
     icon.style.color = '';
   });
@@ -113,17 +102,8 @@ const projectCards = document.querySelectorAll('.project-card');
 filterButtons.forEach(button => {
   button.addEventListener('click', () => {
     const category = button.getAttribute('data-category');
-
     projectCards.forEach(card => {
-      if (category === 'all' || card.classList.contains(category)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
+      card.style.display = (category === 'all' || card.classList.contains(category)) ? 'block' : 'none';
     });
   });
 });
-
-
-
-
