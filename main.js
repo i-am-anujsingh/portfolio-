@@ -1,13 +1,13 @@
 // Form Validation and Submission
-const contactForm = document.querySelector('.contact-form');
+const contactForm = document.querySelector('#contactForm');
 
 if (contactForm) {
   contactForm.addEventListener('submit', async function(event) {
     event.preventDefault();
 
-    const name = contactForm.querySelector('input[type="text"]').value.trim();
-    const email = contactForm.querySelector('input[type="email"]').value.trim();
-    const message = contactForm.querySelector('textarea').value.trim();
+    const name = contactForm.querySelector('#name').value.trim();
+const email = contactForm.querySelector('#email').value.trim();
+const message = contactForm.querySelector('#message').value.trim();
     const responseMessage = document.getElementById('responseMessage'); // For feedback
 
     if (!name || !email || !message) {
